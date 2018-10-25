@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div.parent{
+				border: 1px solid royalblue;
+				width: 500px;
+				height: 600px;
+				position: relative;
+				margin: 20px auto;
+			}
+			div.child{
+				position: absolute;
+				top:50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				width: 200px;
+				height: 50px;
+				border: 1px solid red;
+				/*padding: 5px;*/
+			}
+		</style>
+	<script src="js/jquery-1.11.3.js"></script>
+	</head>
+	<body>
+		<div class="parent">
+			<div  id="div" class="child">
+				子元素
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+
+	$(window).ready(function(){
+		console.log("--div滚动距离------------------------------------");
+		window.onload=function(){
+	    var a = $("#div").height(),//width()返回元素本身的宽高，不包括padding/border/margin
+	        b = $("#div").innerHeight(),//innerWidth()返回元素的宽高 + padding
+	        c = $("#div").outerHeight(),//outerWidth()返回元素的宽高 + padding + border
+	        d = $("#div").outerWidth(true);//outerWidth(true)返回元素宽高 + padding + border + margin
+//	    console.log(a,b,c,d);
+			$(window).height();  //获取浏览器显示区域（可视区域）的高度 
+	    	$(document).height();  //获取页面的文档高度  
+	    	$(document.body).height()  //浏览器当前窗口文档body的高度： 
+	    	$(document).scrollTop();   //获取滚动条到顶部的垂直高度 (即网页被卷上去的高度)  
+	    	$('#div').height() //获取或设置元素的高度：
+	    	$('#div').offset().top
+}
+//              console.log(document.getElementById("inner").scrollTop);
+////              console.log($("#inner").scrollTop());
+//
+//              console.log("--div文档总高度-------------------------------------");
+//              // There is no scrollHeight in jQuery - it's scrollTop():所以用DOM操作获取元素并计算scrollHeight。
+//              console.log(document.getElementById("inner").scrollHeight);//div总高度
+////              console.log($("#inner").scrollHeight);//jq没此方法
+//
+//              console.log("---div显示高度----------------------------------");
+//              console.log(document.getElementById("inner").offsetHeight);//div显示高度
+////              console.log($("#inner").offsetHeight);//jq没此方法
+//
+//              console.log(document.getElementById("inner").height);//DOM无此操作
+////              console.log($("#inner").height());//div显示高度
+//				var scrollHeight = document.getElementById("inner").scrollHeight;
+//              $("#zero").text($("#inner").height() + "  窗口卷上去=" + $("#inner").scrollTop() + "   文档高度" + scrollHeight);
+//              $("#first").text($("#inner").offset().top);//距离文档顶部的高度
+//              $("#second").text($("#inner").position().top);//距离父元素顶部的距离
+//              $("#third").text($("#inner").offset().top - $("body").scrollTop());//距离窗口顶部的距离
+//              $("#forth").text($("body").scrollTop());//body卷上去高度
+//
+//              console.log("--div距离顶部距离-----------------------------------------")
+//              //top:此属性仅仅在对象的定位(position)属性被设置时可用。否则，此属性设置会被忽略。
+//              console.log("blue==="+$("#box").offset().top());//blue距离body顶部距离 = top + margin-top
+//              console.log("blue==="+document.getElementById("box").top());//DOM中无此方法
+//
+//              console.log("blue==="+$("#box").offsetTop());//jq无此方法
+//              console.log("blue==="+document.getElementById("box").offsetTop());//blue距离body顶部距离 = top + margin-top
+
+	})
+</script>
